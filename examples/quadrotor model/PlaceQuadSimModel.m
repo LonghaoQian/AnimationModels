@@ -21,10 +21,15 @@
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
 % ------------------------------------------------------------------------------
-% load 
+% load the quadrotor and the gates
+% input:
+% ax: main axis
+% singleQuadControl: simulation results from quadrotor simulation
 function model = PlaceQuadSimModel(ax, singleQuadControl)
+    %% generate quadrotor
     model.quadObj = CreateQuadRotor(0.7, 0.3, ax, 'NED');
 
+    %% generate gates
     model.gateOj1 = CreateRroundGate(2, 0.3, 0.2, 20, 'blue' , ax);
     model.gateOj2 = CreateRroundGate(2, 0.3, 0.2, 20, 'red' , ax);
     model.gateOj3 = CreateRroundGate(2, 0.3, 0.2, 20, 'green' , ax);

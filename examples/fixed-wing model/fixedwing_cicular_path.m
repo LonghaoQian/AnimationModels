@@ -28,6 +28,7 @@ load('flightSimResults_circular.mat')
 addpath('../../src/models')
 addpath('../../src/utils')
 addpath('../../src/camera')
+addpath('../../src/hud')
 %% define the figure
 anim_fig = figure('Units', 'normalized', 'OuterPosition', [0.2 0.2 0.6 0.6]);
 ax = axes('Position',[0.1 0.1 0.8 0.8],  'XLim',[-400 400],'YLim',[-400 400],'ZLim',[0 150], 'DataAspectRatio', [1 1 1]);
@@ -49,7 +50,7 @@ pc = [-3; 0; -2];
 pt = [20; 0; -2];
 InitCamera(ax, 80, 'perspective');
 %% define a mini map
-ax2 = axes('Units', 'Normalized', 'Position',[0.7 0.15 0.3 0.75],...
+ax2 = axes('Units', 'Normalized', 'Position',[0.75 0.1 0.2 0.55],...
 'Box', 'on', ...
 'LineWidth', 2, ...
 'Color', [1, 1, 1], 'DataAspectRatio', [1 1 1]);
@@ -60,7 +61,7 @@ trajectory_line2 = line(pathsim.Xe(:, 1), pathsim.Xe(:, 2), pathsim.Xe(:, 3),...
     'LineWidth', 1, 'Color', 'red', 'Parent', ax2);
 
 set(ax2, 'XLim',[-150, 100]);
-set(ax2, 'YLim',[-100, 250]);
+set(ax2, 'YLim',[0, 250]);
 set(ax2, 'YDir', 'reverse')
 set(ax2, 'ZDir', 'reverse')
 planeObj2 = CreatePlane(15, ax2, 'NED');
@@ -68,7 +69,7 @@ xlabel(ax2, 'x(m)')
 ylabel(ax2, 'y(m)')
 grid(ax2, 'on')
 %% define hud
-simpleHud = CreateSimpleHud(1, 'green', 13, 90/10, 30);
+simpleHud = CreateSimpleHud(1, 'green', 13, 90/10, 30, 'none');
 %% down sample the data
 startIdx = 20;
 endIdx = 4200;
@@ -76,7 +77,8 @@ idxArray = GetDownSampledIdx(0.1, pathsim.time, startIdx, endIdx);
 %% For each simulation st
 saveToGif = false; % set this to true if you need to save the gif
 filename_gif = "circular_arc_trajectory.gif";
-for i = 1 : length(idxArray)
+n = length(idxArray);
+for i = 1 : n
     k = idxArray(i);
     %% update the model
     R = GenerateHgRotation([pathsim.attitude(k, 1), pathsim.attitude(k, 2), pathsim.attitude(k, 3)], 'euler', "NED");
@@ -87,7 +89,7 @@ for i = 1 : length(idxArray)
     C21 = reshape(pathsim.Rbe(:, :, k), 3, 3)';
     UpdateCameraModelFixed(ax, pathsim.Xe(k, :), pc, pt, C21);
     %% update the hud
-    UpdateSimpleHud(simpleHud, pathsim.attitude(k, 1), pathsim.attitude(k, 2), pathsim.attitude(k, 2), -pathsim.Xe(k, 3), pathsim.TAS(k));
+    UpdateSimpleHud(simpleHud, pathsim.attitude(k, 1), pathsim.attitude(k, 2), pathsim.attitude(k, 3), -pathsim.Xe(k, 3), pathsim.TAS(k));
     %% update the animation render range
     set(ax, 'XLim',[-300 + pathsim.Xe(k, 1), 300 + pathsim.Xe(k, 1)]);
     set(ax, 'YLim',[-300 + pathsim.Xe(k, 2), 300 + pathsim.Xe(k, 2)]);

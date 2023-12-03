@@ -1,4 +1,3 @@
-% generate a fixed-wing drone model
 % ------------------------------------------------------------------------------
 % MIT License
 % 
@@ -22,6 +21,7 @@
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
 % ------------------------------------------------------------------------------
+% generate a fixed-wing drone model
 % x: forward, y: starboard, z: downwards
 % sizeFactor: the length of the drone
 % varargin: frameType: ENU and NED. Default is ENU
@@ -40,11 +40,15 @@ function planeObj = CreatePlane(sizeFactor, mainAxis, varargin)
     r = L * 0.1; % radius of the fuselage
     Lc = L * 0.3; % cone length of the head and the back of the fuselage
     
-    b = 1.8 * L; % wing space
+    b = 1.8 * L; % wing span
     c = 0.18 * b; % wing chord
     
     planeObj.frame = hgtransform('Parent', mainAxis);
     planeObj.frame_model = hgtransform('Parent', planeObj.frame);
+    planeObj.para.wingspan = b;
+    planeObj.para.wingchord = c;
+    planeObj.para.wingheight = r;
+    planeObj.para.wingPos = [0;0;r];
     
     switch frameType
         case 'NED'

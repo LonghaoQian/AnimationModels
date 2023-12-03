@@ -23,8 +23,13 @@
 % ------------------------------------------------------------------------------
 close all
 clear;
-%%
+%% load parameters
 load('flightSimResults_straightline.mat')
+addpath('../../src/models')
+addpath('../../src/utils')
+addpath('../../src/camera')
+addpath('../../src/hud')
+%% create figure
 anim_fig = figure('Units', 'normalized', 'OuterPosition', [0.2 0.2 0.6 0.6]);
 ax = axes('Position',[0.1 0.1 0.8 0.8],  'XLim',[-400 400],'YLim',[-400 400],'ZLim',[0 150], 'DataAspectRatio', [1 1 1]);
 %% trajectory
@@ -40,9 +45,9 @@ zlabel(ax, 'z axis, m');
 grid on
 axis equal;
 %% init camera for the main display
-InitCamera(ax, 90, 'perspective');
+InitCamera(ax, 80, 'perspective');
 % define the camera position
-pc = [-3; 0; -2];
+pc = [-3.5; 0; -2];
 pt = [20; 0; -2];
 %% create a minin map
 ax2 = axes('Units', 'Normalized', 'Position',[0.7 0.15 0.3 0.75],...
@@ -64,7 +69,7 @@ grid(ax2, 'on')
 xlabel(ax2, 'x(m)')
 ylabel(ax2, 'y(m)')
 %% define hud
-simpleHud = CreateSimpleHud(1, 'green', 13, 90/10, 30);
+simpleHud = CreateSimpleHud(1, 'green', 13, 90/10, 30, 'none');
 %% down sample the data points
 startIdx = 20;
 endIdx = 3200;
@@ -72,8 +77,9 @@ deltaT = 0.1;
 idxArray = GetDownSampledIdx(deltaT, pathsim.time, startIdx, endIdx);
 %% update the gif
 saveToGif = false; % set this to true if you need to save the gif
-filename_gif = "testAnimated_straightline.gif";
-for i = 1 : length(idxArray)
+filename_gif = "straightline_simulation.gif";
+n = length(idxArray);
+for i = 1 : n
     k = idxArray(i);
     %% update the model
     C21 = reshape(pathsim.Rbe(:, :, k), 3, 3)';
@@ -85,7 +91,7 @@ for i = 1 : length(idxArray)
     %% update the camera
     UpdateCameraModelFixed(ax, pathsim.Xe(k, :), pc, pt, C21);
     %% update the hud
-    UpdateSimpleHud(simpleHud, pathsim.attitude(k, 1), pathsim.attitude(k, 2), pathsim.attitude(k, 2), -pathsim.Xe(k, 3), pathsim.TAS(k));
+    UpdateSimpleHud(simpleHud, pathsim.attitude(k, 1), pathsim.attitude(k, 2), pathsim.attitude(k, 3), -pathsim.Xe(k, 3), pathsim.TAS(k));
     %% update rendering aera
     set(ax, 'XLim',[-300 + pathsim.Xe(k, 1), 300 + pathsim.Xe(k, 1)]);
     set(ax, 'YLim',[-300 + pathsim.Xe(k, 2), 300 + pathsim.Xe(k, 2)]);

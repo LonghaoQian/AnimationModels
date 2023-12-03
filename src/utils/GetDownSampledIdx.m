@@ -1,4 +1,3 @@
-% down sampling and normalize the data
 % ------------------------------------------------------------------------------
 % MIT License
 % 
@@ -22,6 +21,9 @@
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
 % ------------------------------------------------------------------------------
+% down sampling and normalize the data
+% input:
+% 
 function idxArray = GetDownSampledIdx(samplePeriod, arr, startIdx, endIdx)
     baseIdx = startIdx;
     totalLen = length(arr);

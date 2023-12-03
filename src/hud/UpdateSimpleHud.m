@@ -24,10 +24,9 @@
 % update Simplehud according to the flight data
 function UpdateSimpleHud(hudObj, roll, pitch, yaw, altitude, airspeed)
     %% update the artificial horizon
-    % make sure that the GenerateHgRotation is added to the path
+    % make sure that GenerateHgRotation has been added to the path
     hudR = GenerateHgRotation([0, 0, -roll], 'euler', "ENU");
-    % (hudObj.rollIndicator.frame, 'Matrix', hudR);
-    
+
     pitchdeg = pitch * 180 / pi;
     
     pitchDisplacement = pitchdeg / hudObj.pitchIndicator.pitchRange;
@@ -35,8 +34,17 @@ function UpdateSimpleHud(hudObj, roll, pitch, yaw, altitude, airspeed)
     rollDeg = roll * 57.3;
     set(hudObj.pitchIndicator.right.text,'Rotation', rollDeg);
     set(hudObj.pitchIndicator.left.text,'Rotation', rollDeg);
-    
+    set(hudObj.rollIndicator.iconFrame, 'Matrix', hudR);
+    for i = 1 : hudObj.pitchIndicator.numOfPitchTicks
+        set(hudObj.pitchIndicator.upper{i}.textLeft, 'Rotation', rollDeg);
+        set(hudObj.pitchIndicator.upper{i}.textRight, 'Rotation', rollDeg);
+        set(hudObj.pitchIndicator.lower{i}.textLeft, 'Rotation', rollDeg);
+        set(hudObj.pitchIndicator.lower{i}.textRight, 'Rotation', rollDeg);
+    end
     %% update the altitude and airspeed display
     set(hudObj.altitude, 'String', [num2str(floor(altitude)), ' m'])
     set(hudObj.airspeed, 'String', [num2str(floor(airspeed)), ' m/s'])
+    %% update yaw indicator text
+    % make sure that ConvertTo360DegConvetion has been added to the path
+    set(hudObj.yawIndicator.text, 'String', num2str(round(ConvertTo360DegConvetion(yaw * 57.3))));
 end
