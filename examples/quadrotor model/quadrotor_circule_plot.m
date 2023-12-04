@@ -58,8 +58,8 @@ for i = 1 : length(idxArray)
     %% get the sampled idx
     k = idxArray(i);
     %% update the model
-    C21 = reshape(singleQuadControl.dataLog.groundTruth.Reb(:, :, k)', 3, 3)';
-    R = [C21 zeros(3, 1);
+    Reb = reshape(singleQuadControl.dataLog.groundTruth.Reb(:, :, k)', 3, 3)';
+    R = [Reb zeros(3, 1);
         zeros(1, 3), 1];
     xp = singleQuadControl.dataLog.groundTruth.X(k, 1);
     yp = singleQuadControl.dataLog.groundTruth.X(k, 2);
@@ -68,7 +68,7 @@ for i = 1 : length(idxArray)
     T = makehgtform('translate', x');
     set(mainView.quadObj.frame, 'Matrix', T * R);
     %% update the camera
-    UpdateCameraModelFixed(ax, x, pc, pt, C21);
+    UpdateCameraModelFixed(ax, x, pc, pt, Reb);
     %% set axis
     set(ax, 'XLim',[-30 + xp, 30 + xp]);
     set(ax, 'YLim',[-30 + yp, 30 + yp]);

@@ -82,14 +82,14 @@ n = length(idxArray);
 for i = 1 : n
     k = idxArray(i);
     %% update the model
-    C21 = reshape(pathsim.Rbe(:, :, k), 3, 3)';
-    R = [C21 zeros(3, 1);
+    Reb = reshape(pathsim.Rbe(:, :, k), 3, 3)';
+    R = [Reb zeros(3, 1);
         zeros(1, 3), 1];
     T = makehgtform('translate',[pathsim.Xe(k, 1) ,pathsim.Xe(k, 2), pathsim.Xe(k, 3)]);
     set(planeObj.frame, 'Matrix', T * R);
     set(planeObj2.frame, 'Matrix', T * R);
     %% update the camera
-    UpdateCameraModelFixed(ax, pathsim.Xe(k, :), pc, pt, C21);
+    UpdateCameraModelFixed(ax, pathsim.Xe(k, :), pc, pt, Reb);
     %% update the hud
     UpdateSimpleHud(simpleHud, pathsim.attitude(k, 1), pathsim.attitude(k, 2), pathsim.attitude(k, 3), -pathsim.Xe(k, 3), pathsim.TAS(k));
     %% update rendering aera
