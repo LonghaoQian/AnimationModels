@@ -73,7 +73,7 @@ startIdx = 20;
 endIdx = 4200;
 idxArray = GetDownSampledIdx(0.1, pathsim.time, startIdx, endIdx);
 %% run animation
-saveToGif = true; % set this to true if you need to save the gif
+saveToGif = false; % set this to true if you need to save the gif
 filename_gif = "circular_arc_trajectory_following_view.gif";
 n = length(idxArray);
 for i = 1 : n

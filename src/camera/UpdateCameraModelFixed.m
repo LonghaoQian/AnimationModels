@@ -29,12 +29,21 @@
 % target: the point at which the camera is pointing relative to the center of
 % vehicle
 % Reb: the rotation matrix of the vehicle. From the body-fixed frame to the
+% frameType: enu or ned
 % global frame
-function UpdateCameraModelFixed(ax, Xe, position, target, Reb)
+function UpdateCameraModelFixed(ax, Xe, position, target, Reb, frameType)
 %% update camera position and target location
     campos(ax, Xe + (Reb *  position)')
     camtarget(ax, Xe + (Reb * target)')
 %% update the z axis of the camera
-    % camup(ax, Reb * [0; 0; -1]);
-    camup(ax, Reb * [0; 0; 1]);
+    switch frameType
+        case 'NED'
+            % if NED, the plane model should rotate around x axis for 180
+            % degress from the plane reference frame
+            camup(ax, Reb * [0; 0; -1]);
+        case 'ENU'
+            camup(ax, Reb * [0; 0; 1]);
+        otherwise
+            error(["error option ", frameType, ", the valid frameType options are 'ENU' and 'END'!"]) 
+    end
 end

@@ -68,7 +68,7 @@ for i = 1 : length(idxArray)
     T = makehgtform('translate', x');
     set(mainView.quadObj.frame, 'Matrix', T * R);
     %% update the camera
-    UpdateCameraModelFixed(ax, x, pc, pt, Reb);
+    UpdateCameraModelFixed(ax, x, pc, pt, Reb, 'NED');
     %% set axis
     set(ax, 'XLim',[-30 + xp, 30 + xp]);
     set(ax, 'YLim',[-30 + yp, 30 + yp]);

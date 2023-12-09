@@ -90,7 +90,7 @@ where frame 1 is the parent frame, and frame 2 is the child frame. Note that `ma
 
 
 
-## Apply Combined Transformations
+## Apply Compounded Transformations
 
 To apply the transformation, use the ``set`` function. The syntax is as follows:
 

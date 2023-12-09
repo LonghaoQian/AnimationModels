@@ -8,10 +8,9 @@ $$a_2=R_{21}a_1$$
 
 where
 
-<img src="https://latex.codecogs.com/gif.image?\inline&space;\dpi{200}\bg{white}\boldsymbol{a}_1=\begin{bmatrix}a_{1,x}\\a_{1,y}\\a_{1,z}\\\end{bmatrix},\quad\boldsymbol{a}_2=\begin{bmatrix}a_{2,x}\\a_{2,y}\\a_{2,z}\\\end{bmatrix}
-" 
+<img src="../../figures/vectors.png" 
         alt="Picture" 
-        width="210" 
+        width="200" 
         style="display: block; margin: 0 auto" />
 
 as shown in the following figure

@@ -89,7 +89,7 @@ for i = 1 : n
     set(planeObj.frame, 'Matrix', T * R);
     set(planeObj2.frame, 'Matrix', T * R);
     %% update the camera
-    UpdateCameraModelFixed(ax, pathsim.Xe(k, :), pc, pt, Reb);
+    UpdateCameraModelFixed(ax, pathsim.Xe(k, :), pc, pt, Reb, 'NED');
     %% update the hud
     UpdateSimpleHud(simpleHud, pathsim.attitude(k, 1), pathsim.attitude(k, 2), pathsim.attitude(k, 3), -pathsim.Xe(k, 3), pathsim.TAS(k));
     %% update rendering aera

@@ -1,43 +1,38 @@
 # Table of Contents
 - Here are the contents of examples:
 
-| Topic   |      Content      |
+| Chapter  |      Content      |
 |:----------:|-------------|
+| [Overall Procedure](background/overall_procedure.md) | Explains the overall procedure of how to create an animation |
 | [Rotation Matrix](background/rotation_matrix.md) | Provides background of rotation matrices|
 | [Matlab Animation Frame System](background/animation_frame_system.md) | Explains how frame system works in Matlab animation|
-| [Model Building](background/model_building.md) | Explains the basic concept of figure primitives and how to build simple 3d models |
+| [Bulit-in Modles](background/model_building.md) | Explains how to use the built-in figures and figure primitives |
 | [Camera Settings](background/camera_settings.md) | Explains how to use fixed and free-flying cameras in Matlab animation|
-| Fixed-wing Plane Animations |    | 
-| quadrotor model | right-aligned |
-| vtol model | right-aligned |
 
-
-# The Overall Procedure
-The overall procedure of the entire process is summerized in the following figure:
-
-## How to modify the code to fit your need?
-
-
-# Create 3D models 
-## Model provide in this package
-
-- please read [Model Building](background/model_building.md) for more details of building a 3d model in Matlab.
-
-# Rotate and translate your model
-
-- [Matlab Animation Frame System](background/animation_frame_system.md) explains in details about how frame systems work in Matlab.
-
-- Rotation and translation are done by using 
-
-## Model with manipulate components
-
-- [Camera Settings](background/camera_setting.md)  explains in details about how to define a proper camera in animation
-
-- 
-
-# Define cameras
-
-# Update models and cameras
-
-
-## Record as .gif
+# Package Description
+The the source code is in:
+```
+\src
+```
+Examples are in the following folders:
+```
+\examples\fixed-wing model
+\examples\quadrotor model
+\examples\vtol
+```
+Camera settings:
+```
+\src\camera
+```
+Create hud on top of the model:
+```
+\src\hud
+```
+Create built-in 3d models:
+```
+\src\models
+```
+Utility functions such as rotation matrix generation are in the following folder:
+```
+\src\utils
+```

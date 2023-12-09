@@ -85,9 +85,6 @@ for i = 1 : n
     UpdateCameraModelFollowing(ax, X, pc, pt, 0);
     %% set axis
     Set3dRenderSpace(ax, [x(i) y(i) z(i)], [20 20 10])
-%     set(ax, 'XLim',[-30 + x(i), 30 + x(i)]);
-%     set(ax, 'YLim',[-30 + y(i), 30 + y(i)]);
-%     set(ax, 'ZLim',[-10 + z(i), 10 + z(i)]);
     set(t1, 'String', ['t=', num2str(time(i), '%.2f') ,'s']);
     %% update the plot and generate the gif
     drawnow % visually update the window on every iteration
