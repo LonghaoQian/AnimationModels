@@ -35,5 +35,6 @@ function UpdateCameraModelFixed(ax, Xe, position, target, Reb)
     campos(ax, Xe + (Reb *  position)')
     camtarget(ax, Xe + (Reb * target)')
 %% update the z axis of the camera
-    camup(ax, Reb * [0; 0; -1]);
+    % camup(ax, Reb * [0; 0; -1]);
+    camup(ax, Reb * [0; 0; 1]);
 end
