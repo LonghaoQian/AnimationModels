@@ -49,8 +49,19 @@ The figure primitives are the fundamental elements
 
 - To define a cylinder, a simple way is to used the 
 
-## Line primitive
+## Putting surfaces together
+- Read [Matlab Animation Frame System](animation_frame_system.md) about the frame system in Matlab
+- Here is an example of how to build a quadrotor. Please refer to [CreateQuadRotor.m](../../src/models/CreateQuadRotor.m).
 
+![Alt Text](../../figures/quadrotor_frame.PNG)
+
+![Alt Text](../../figures/quadrotor_model.PNG)
+
+
+## Line primitive
+- Noramlly, one use ``plot`` function to draw lines in Matlab.
+- In 3D animation, we resort to ``line`` 
+- Use ``drawnow`` function to update 
 
 ## Specify the parent frame. 
 - The most important property of a 3d model is its parent frame as it realizes the transformation of the model.
