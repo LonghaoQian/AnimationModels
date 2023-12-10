@@ -4,7 +4,7 @@
 | Chapter  |      Content      |
 |:----------:|-------------|
 | [Overall Procedure](background/overall_procedure.md) | Explains the overall procedure of how to create an animation |
-| [Rotation Matrix](background/rotation_matrix.md) | Provides background of rotation matrices|
+| [Background of Rotations](background/rotation_matrix.md) | Provides background of rotation matrices|
 | [Matlab Animation Frame System](background/animation_frame_system.md) | Explains how frame system works in Matlab animation|
 | [Bulit-in Modles](background/model_building.md) | Explains how to use the built-in figures and figure primitives |
 | [Camera Settings](background/camera_settings.md) | Explains how to use fixed and free-flying cameras in Matlab animation|

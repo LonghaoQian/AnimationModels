@@ -1,5 +1,5 @@
 # Camera Settings
-This package provides the following 3 types of view:
+This package provides the 3 types of camera modes:
 ## The Side View Mode
 
 The side view mode is the default view. Use [UpdateCameraModelSideView.m](../../src/camera/UpdateCameraModelSideView.m) to specify the camera.
@@ -24,7 +24,7 @@ Read this [page](https://www.mathworks.com/help/matlab/ref/view.html) for more d
 - Initialize the camera before using the funcitons in this package.
 - There are 2 sub modes of the free-flying mode: the body-fixed mode and the horizontal-following mode.
 
-### Initialized the camera
+### Initialize the camera
 - Before updating the free-flying camera, one needs to initialized the camera view angle and projection mode by using [InitCamera.m](../../src/camera/InitCamera.m).
 - The field of view is set by ``fov`` in degrees.
 - The projection mode is set to ``perspective`` or ```orthographic```. The recommended setting is ``perspective``.

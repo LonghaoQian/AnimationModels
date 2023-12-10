@@ -1,4 +1,4 @@
-# Some Background of Rotations
+# Background of Rotations
 ## Syntax of Rotation Matrices
 
 There are two reference frames: frame 1 and frame 2. The rotation matrix between frame 1 and frame 2 is defined as $R_{21}$.
@@ -39,9 +39,9 @@ This package provides the code in the [utils folder](../../src/utils/) to genera
 \src\utils\util_rotationZ.m
 ```
 
-# Coordniate Frames
+# Coordinate Frames
 ## The ENU (east-north-up frame) and the NED (north-east-down frame)
-- There are two major frames usined in aviation: the ENU frame and the NED frame, as shown in the following figure
+- There are two major frames used in this package: the ENU frame and the NED frame, as shown in the following figure
 
 <img src="../../figures/enu_ned.PNG" 
         alt="Picture" 

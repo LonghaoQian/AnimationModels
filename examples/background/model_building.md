@@ -1,6 +1,9 @@
 
 # Built-in Models
-This package provides the following built-in models that can be created by a single function call:
+- This package provides the following built-in models that can be created by a single function call.
+- Read [Background of Rotations](rotation_matrix.md) for more details about mathematical background.
+- [Matlab Animation Frame System](animation_frame_system.md) explains in details about how frame systems work in Matlab.
+
 ## Quadrotor
 - To create a quadrotor, use [CreateQuadRotor.m](../../src/models/CreateQuadRotor.m);
 - The body-fixed frame of the plane is ``planeObj.frame``;
@@ -26,22 +29,27 @@ This package provides the following built-in models that can be created by a sin
 - To create hud, use [CreateSimpleHud.m](../../src/hud/CreateSimpleHud.m)
 - To update hud, use [UpdateSimpleHud.m](../../src/hud/UpdateSimpleHud.m)
 
-# Update Figures
-Use the ``drawnow`` function
-
 # Figure Primitives
 To create your own models, you may use the following commands
 
 The figure primitives are the fundamental elements 
 
 # Building Simple 3d Models
-For detailed 
-- Define a 3d surface
+## 3D surfaces
+- To learn how to create 3d surfaces, read more details about the [patch](https://www.mathworks.com/help/matlab/ref/patch.html) and the [surface](https://www.mathworks.com/help/matlab/ref/surf.html) command.
 
-- Define line primitive
+- To define a cylinder, a simple way is to used the 
 
-- Define a cylinder
+## Line primitive
 
+
+## Specify the parent frame. 
+- The most important property of a 3d model is its parent frame as it realizes the transformation of the model.
+- The parent frame
+- One can also use the ``set`` function 
+
+# Update Figures
+Use the ``drawnow`` function
 
 
 **[Back To Table of Contents](../README.md)**
