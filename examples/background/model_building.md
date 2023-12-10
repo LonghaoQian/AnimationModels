@@ -8,11 +8,14 @@
 - To create a quadrotor, use [CreateQuadRotor.m](../../src/models/CreateQuadRotor.m);
 - The body-fixed frame of the plane is ``planeObj.frame``;
 
+![Alt Text](../../figures/quad1.png)
 
 ## Fixed-wing plane
 - To create a fixed-wing plane, use [CreatePlane.m](../../src/models/CreatePlane.m);
 - The body-fixed frame of the plane is ``planeObj.frame``;
 - The 
+
+![Alt Text](../../figures/plane1.png)
 
 ## Vtol
 
@@ -20,14 +23,20 @@
 - To rotate the engines around the wing, use [UpdateEngineAngleTwinEngineVtol.m](../../src/models/UpdateEngineAngleTwinEngineVtol.m)
 - The body-fixed frame of the plane is ``planeObj.frame``;
 
+![Alt Text](../../figures/vtol1.png)
+
 ## Gate
 
 - To create a gate, use [CreateRroundGate.m](../../src/models/CreateRroundGate.m)
+
+![Alt Text](../../figures/gate.png)
 
 ## Hud
 
 - To create hud, use [CreateSimpleHud.m](../../src/hud/CreateSimpleHud.m)
 - To update hud, use [UpdateSimpleHud.m](../../src/hud/UpdateSimpleHud.m)
+
+![Alt Text](../../figures/hud.png)
 
 # Figure Primitives
 To create your own models, you may use the following commands
