@@ -14,12 +14,13 @@ Dr. Longhao Qian
 ## Please cite this repository
 ### APA format
 ```
-Qian, L. (2023). Matlab Drone Simulation Visualization Package (Version 1.0.0) [Computer software].
+Qian, L. (2023). Matlab Drone Simulation Visualization Package (Version 1.0.0) [Computer software]. https://doi.org/10.5281/zenodo.10359983
 ```
 ### BibTex
 ```
 @software{Qian_Matlab_Drone_Simulation_2023,
 author = {Qian, Longhao},
+doi = {10.5281/zenodo.10359983},
 month = dec,
 title = {{Matlab Drone Simulation Visualization Package}},
 url = {https://github.com/LonghaoQian/AnimationModels},
