@@ -1,4 +1,7 @@
 # Matlab Flight Simulation Animation Package
+![Static Badge](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.10359983-blue)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) 
+
 ## A concrete and ready-to-use visualization package written in Matlab for flight simulation.
 
 ## Author
