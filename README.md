@@ -24,14 +24,14 @@ version = {1.0.0},
 year = {2023}
 }
 ```
-Alternatively, you could obtain the citation from Github citation tap:
+Alternatively, you could obtain the citation from GitHub citation tap:
 
 ![Alt Text](figures/citation_tap.PNG)
 
 ## What is this package?
 - Provides a compact and easy way to generate animations from flight simulation data.
 - Encapsulates and concentrates individual 3D rendering functions into a single function to provide a clean and concrete interface. 
-- I also provide [background information and coding guide](examples/README.md) about how to generate animations in Matlab environment.
+- I also provide [background information and coding guide](examples/README.md) about how to generate animations in a Matlab environment.
 - [The coding guide](examples/README.md) also teaches you about how to build your own customized visualization based on the code in this package. 
 
 ## Examples
@@ -41,5 +41,6 @@ Alternatively, you could obtain the citation from Github citation tap:
 ![Alt Text](figures/quadrotor_circular_trajectory.gif)
 ### A racing quadrotor drone simulation
 ![Alt Text](figures/quadrotor_complicated_trjectory.gif)
+- Racing drone flight data are provided by [Chao Qin](https://github.com/ChaoqinRobotics).
 ### A twin-engine VTOL with tilting engines
 ![Alt Text](figures/vtol_animate.gif)

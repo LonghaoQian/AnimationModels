@@ -32,14 +32,17 @@ Read this [page](https://www.mathworks.com/help/matlab/ref/view.html) for more d
 
 ### The body-fixed mode
 In the body-fixed mode, the camera is fixed to an object as shown in the following figure. Use [UpdateCameraModelFixed.m](../../src/camera/UpdateCameraModelFixed.m) to update the camera. This view together with the HUD module can be used as a fpv view for drones and flight simulation.
+
+
+The geometry of the body-fixed mode is shown in the following figure:
+
 <img src="../../figures/circular_arc_trajectory.gif" 
         alt="Picture" 
         width="600" 
         style="display: block; margin: 0 auto" />
 
-The geometry of the body-fixed mode is shown in the following figure:
-- The camera is fixed in the body-fixed frame. The view point defined in the body-fixed frame is denoted by the argument called ``target``.
-- The camera postion relative to the origin of the body-fixed frame is denoted as ``position``.
+- The camera is fixed in the body-fixed frame. The viewpoint defined in the body-fixed frame is denoted by the argument called ``target``.
+- The camera position relative to the origin of the body-fixed frame is denoted as ``position``.
 - The rotation matrix between the body-fixed frame and the global frame is denoted as ``R_eb``. The global frame axis is denoted as ``ax``.
 - The position of the body-fixed frame relative to the global frame is denoted as ``Xe``.
 
@@ -50,12 +53,12 @@ The geometry of the body-fixed mode is shown in the following figure:
 
 ### The horizontal-following mode
 
+The geometry of the horizontal-following mode is shown in the following figure:
+
 <img src="../../figures/circular_arc_trajectory_following_view.gif" 
         alt="Picture" 
         width="600" 
         style="display: block; margin: 0 auto" />
-
-The geometry of the horizontal-following mode is shown in the following figure:
 
 - Use [UpdateCameraModelFollowing.m](../../src/camera/UpdateCameraModelFollowing.m)  to update the camera.
 - The horizontal-following frame is a frame following the model, but only rotate around z axis by $\psi$, ignoring pitch and roll.

@@ -24,14 +24,14 @@ as shown in the following figure
 
 ## Euler angles and the corresponding rotation matrix
 
-The rotation of reference frames can be achived by using the euler angles around principle axis. In avaiation, we use $\phi$, $\theta$, $\psi$ to denote the roll, pitch, and yaw angle representing the rotation around the x, y, and z axis. If frame 1 is the stationary frame, and frame 2 rotates w.r.t. frame 1 by an Euler angle, then the rotation matrix between frame 1 and 2 are as follows:
+The rotation of reference frames can be achieved by using the euler angles around principle axis. We use $\phi$, $\theta$, $\psi$ to denote the roll, pitch, and yaw angle representing the rotation around the x, y, and z-axis. If frame 1 is the stationary frame, and frame 2 rotates w.r.t. frame 1 by an Euler angle, then the rotation matrix between frame 1 and 2 is as follows:
 
 <img src="../../figures/matrix_from_euler.gif" 
         alt="Picture" 
         width="900" 
         style="display: block; margin: 0 auto" />
 
-This package provides the code in the [utils folder](../../src/utils/) to generate rotation matrix around principle axis:
+The functions in the [utils folder](../../src/utils/) generate rotation matrices around principle axis:
 
 ```
 \src\utils\util_rotationX.m
@@ -41,7 +41,7 @@ This package provides the code in the [utils folder](../../src/utils/) to genera
 
 # Coordinate Frames
 ## The ENU (east-north-up frame) and the NED (north-east-down frame)
-- There are two major frames used in this package: the ENU frame and the NED frame, as shown in the following figure
+- There are two major frames used in this package: the ENU frame and the NED frame, as shown in the following figure:
 
 <img src="../../figures/enu_ned.PNG" 
         alt="Picture" 

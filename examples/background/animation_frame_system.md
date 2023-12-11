@@ -1,5 +1,5 @@
 # The Frame System in Matlab Animation
-Each object, such as patch, surface, line, text, defined in a matlab plot, is associated with a graphics frame. By default, all the objects are assigned to the global frame of an axis. If you need to assign it to a differernt frame, you need to define your custom frame first by using the `hgtransform` function:
+Each object, such as a patch, surface, line, or text, defined in a Matlab plot, is associated with a graphics frame. By default, all the objects are assigned to the global frame of an axis. If you need to assign it to a different frame, you need to define your custom frame first by using the `hgtransform` function:
 
 ```
 childFrame = hgtransform('Parent', parentFrame);
@@ -26,7 +26,7 @@ frame3 = hgtransform('Parent', frame2);
 frame4 = hgtransform('Parent', frame3);
 ```
 
-In this way, if you define your model in frame 1~4, you could perfom complex tranformation to create animation for a multi-body system as show in the following figure:
+In this way, if you define different parts of your model in frames 1~4, you could perform complex transformation to create animation for a multi-body system as shown in the following figure:
 
 <img src="../../figures/animation_frames.PNG" 
         alt="Picture" 
@@ -39,7 +39,7 @@ For example, in [CreateTwinEngineVtol.m](../../src/models/CreateTwingEngineVtol.
 vtolObj.leftEngineObj = CreatePropellerEngine(vtolObj.para.engineLength, vtolObj.para.engineRadius, vtolObj.para.rotorRadius, 'cyan', 'blue', vtolObj.plane.frame_model);
 ```
 
-Then to rotate the engine, in [UpdateEngineAngleTwinEngineVtol.m](../../src/models/UpdateEngineAngleTwinEngineVtol.m), we can set the transform matrix between the engine frame (``vtolObj.leftEngineObj.frame``) and the plane model frame (``vtolObj.plane.frame_model``):
+Then to rotate the engine, call [UpdateEngineAngleTwinEngineVtol.m](../../src/models/UpdateEngineAngleTwinEngineVtol.m) to set the transform matrix between the engine frame (``vtolObj.leftEngineObj.frame``) and the plane model frame (``vtolObj.plane.frame_model``):
 
 ```
 set(vtolObj.leftEngineObj.frame, 'Matrix', makehgtform('translate', vtolObj.para.leftEnginePos) * makehgtform('yrotate', -leftEngAngle + pi/2));
@@ -47,7 +47,7 @@ set(vtolObj.leftEngineObj.frame, 'Matrix', makehgtform('translate', vtolObj.para
 
 # Transforming Frames in Matlab Figures
 ## How to transform a frame w.r.t. another frame
-If the object is define in a frame other than the global frame, you could transform the object by transforming its associated frame. (You can not transform the object directly). Note that all transformations are performed w.r.t. the parent frame. To create a transformation between frames, use the  ``makehgtform`` function:
+If the object is defined in a frame other than the global frame, you could transform the object by transforming its associated frame. (You can not transform the object directly). Note that all transformations are performed w.r.t. the parent frame. To create a transformation between frames, use the  ``makehgtform`` function:
 
 ```
 T = makehgtform('translate', position)
@@ -55,7 +55,7 @@ R = makehgtform('yrotate', angle)
 ```
 
 ## The Linear Transformation
-The linear transformation is produced by `` makehgtform`` by setting the first argument to `'translate'`. For example, in [CreatePlane.m](../../src/models/CreatePlane.m), to move the fuselage alone the x axis of the model frame ``planeObj.frame_model``, set the first arguement of  ``makehgtform``  as  ``translate``, and the displacement in  ``planeObj.frame_model`` as the second argument.
+The linear transformation is produced by `` makehgtform`` by setting the first argument to `'translate'`. For example, in [CreatePlane.m](../../src/models/CreatePlane.m), to move the fuselage alone the x-axis of the model frame ``planeObj.frame_model``, set the first argument of  ``makehgtform``  as  ``translate``, and the displacement in  ``planeObj.frame_model`` as the second argument.
 
 ```
 T = makehgtform('translate', [L/2 ,0, 0]);
@@ -69,7 +69,7 @@ The rotation transformation is defined by setting the first argument as ``xrotat
 ```
 R = makehgtform('yrotate', pi/2); 
 ```
-**The convention of rotating objects in Matlab animation is different from the one in coordinate transformation. If Euler angles are use in the so-called 3-2-1 sequence, the rotation transformation should be applied in a 1-2-3 order.** For example, in [GenerateHgRotation.m](../../src/utils/GenerateHgRotation.m), the total compounded rotation based on euler angles are defined as:
+**The convention of rotating objects in Matlab animation is different from the one in coordinate transformation. If Euler angles are used in the so-called 3-2-1 sequence, the rotation transformation should be applied in a 1-2-3 order.** For example, in [GenerateHgRotation.m](../../src/utils/GenerateHgRotation.m), the total compounded rotation based on Euler angles is defined as:
 
 ```
 Rx = makehgtform('xrotate', ax);
@@ -87,8 +87,6 @@ R = [R12 zeros(3, 1);
 ```
 
 where frame 1 is the parent frame, and frame 2 is the child frame. Note that `makehgtform('xrotate', ax)` creates a 4-by-4 transformation matrix with the top left 3-by-3 block equal to $R_{12}(\phi)$.
-
-
 
 ## Apply Compounded Transformations
 
@@ -115,7 +113,7 @@ T = makehgtform('translate',[pathsim.Xe(k, 1) ,pathsim.Xe(k, 2), pathsim.Xe(k, 3
 set(planeObj.frame, 'Matrix', T * R);
 ```
 
-If euler angles are used, for example in [fixedwing_circular_path.m](../../examples/fixed-wing%20model/fixedwing_cirular_path.m), the transformation of the aircraft is performed as follows:
+If Euler angles are used, for example in [fixedwing_circular_path.m](../../examples/fixed-wing%20model/fixedwing_circular_path.m), the transformation of the aircraft is performed as follows:
 
 ```
 R = GenerateHgRotation([pathsim.attitude(k, 1), pathsim.attitude(k, 2), pathsim.attitude(k, 3)], 'euler', "NED");
@@ -130,11 +128,11 @@ set(planeObj.frame, 'Matrix', T * R);
         width="500" 
         style="display: block; margin: 0 auto" />
 
-If the translation is performed before the rotation, then the rotation transformation will also change the position of the object because the rotation is performed w.r.t. the parent axis.
+- In the left figure, the rotation labeled as 1 is perfomed before the transformation labeled 2.
+- In the right figure, the transformation labeled as 1 is perfomed before the rotation labeled 2.
+- If the translation is performed before the rotation, then the rotation transformation will also change the position of the object because the rotation is performed w.r.t. the parent axis.
 
-
-
-For detailed explainations, please search the above commands in Matlab Help Documents
+For detailed explainations, please search the following commands in Matlab Help Documents
 
 - [hgtransform](https://www.mathworks.com/help/matlab/ref/hgtransform.html)
 - [makehgtform](https://www.mathworks.com/help/matlab/ref/makehgtform.html)

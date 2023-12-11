@@ -7,8 +7,8 @@ The overall procedure is summerized in the following figure:
         style="display: block; margin: 0 auto" />
 
 ## Code Example
-- Run [fixedwing_cirular_path.m](../fixed-wing%20model/fixedwing_cirular_path.m), and observe the results.
-- The procedure of the animation is shown in the following figures:
+- Run [fixedwing_circular_path.m](../fixed-wing%20model/fixedwing_circular_path.m), and observe the results.
+- The procedures of the animation are shown in the following figures:
 
 ![Alt Text](../../figures/code_1.png)
 
@@ -27,11 +27,13 @@ The overall procedure is summerized in the following figure:
 - There are several models provided in this package that can be created by a simple function call.
 - Please read [Built-in Models](model_building.md) for more details.
 
-## Rotate and translate your model
+## Transform your model
 
 - Read [Background of Rotations](rotation_matrix.md) for more details about mathematical background.
 
 - [Matlab Animation Frame System](animation_frame_system.md) explains in details about how frame systems work in Matlab.
+
+- You could use [GenerateHgRotation.m](../../src/utils/GenerateHgRotation.m) to generate rotation transformation from Euler angles.
 
 ## Update cameras
 
@@ -41,6 +43,7 @@ The overall procedure is summerized in the following figure:
 
 - [Matlab Animation Frame System](animation_frame_system.md) explains in details about how frame systems work in Matlab.
 - Read [CreateTwingEngineVtol.m](../../src/models/CreateTwingEngineVtol.m) to learn how to build a model with rotating parts.
+- Please read [Built-in Models](model_building.md) for how to assemble a model with multiple parts.
 
 ![Alt Text](../../figures/vtol_animate.gif)
 
