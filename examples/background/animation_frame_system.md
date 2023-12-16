@@ -26,11 +26,11 @@ frame3 = hgtransform('Parent', frame2);
 frame4 = hgtransform('Parent', frame3);
 ```
 
-In this way, if you define different parts of your model in frames 1~4, you could perform complex transformation to create animation for a multi-body system as shown in the following figure:
+This way, if you define different parts of your model in frames 1~4, you could perform a complex transformation to create an animation for a multi-body system as shown in the following figure:
 
 <img src="../../figures/animation_frames.PNG" 
         alt="Picture" 
-        width="500" 
+        width="700" 
         style="display: block; margin: 0 auto" />
 
 For example, in [CreateTwinEngineVtol.m](../../src/models/CreateTwingEngineVtol.m), the engine frame of the vtol is associated with the parent plane model frame ``vtolObj.plane.frame_model``
@@ -47,7 +47,7 @@ set(vtolObj.leftEngineObj.frame, 'Matrix', makehgtform('translate', vtolObj.para
 
 # Transforming Frames in Matlab Figures
 ## How to transform a frame w.r.t. another frame
-If the object is defined in a frame other than the global frame, you could transform the object by transforming its associated frame. (You can not transform the object directly). Note that all transformations are performed w.r.t. the parent frame. To create a transformation between frames, use the  ``makehgtform`` function:
+If the object is defined in a frame other than the global frame, you could transform the object by transforming its associated frame. (you can not transform the object directly). Note that all transformations are performed w.r.t. the parent frame. To create a transformation between frames, use the  ``makehgtform`` function:
 
 ```
 T = makehgtform('translate', position)
@@ -55,7 +55,7 @@ R = makehgtform('yrotate', angle)
 ```
 
 ## The Linear Transformation
-The linear transformation is produced by `` makehgtform`` by setting the first argument to `'translate'`. For example, in [CreatePlane.m](../../src/models/CreatePlane.m), to move the fuselage alone the x-axis of the model frame ``planeObj.frame_model``, set the first argument of  ``makehgtform``  as  ``translate``, and the displacement in  ``planeObj.frame_model`` as the second argument.
+The linear transformation is produced by `` makehgtform`` by setting the first argument to `'translate'`. For example, in [CreatePlane.m](../../src/models/CreatePlane.m), to move the fuselage along the x-axis of the model frame ``planeObj.frame_model``, set the first argument of  ``makehgtform``  as  ``translate``, and the displacement in  ``planeObj.frame_model`` as the second argument.
 
 ```
 T = makehgtform('translate', [L/2 ,0, 0]);
@@ -64,7 +64,7 @@ T = makehgtform('translate', [L/2 ,0, 0]);
 Note that the transformation is performed w.r.t. the parent frame.
 
 ## The Rotational Transformation
-The rotation transformation is defined by setting the first argument as ``xrotate``,  ``yrotate``, or ``zrotate``. The second argument is the rotation angle in radius. Note that the rotation is performed w.r.t. the parent frame.
+The rotation transformation is defined by setting the first argument as ``xrotate``,  ``yrotate``, or ``zrotate``. The second argument is the rotation angle in radians. Note that the rotation is performed w.r.t. the parent frame.
 
 ```
 R = makehgtform('yrotate', pi/2); 
@@ -128,11 +128,11 @@ set(planeObj.frame, 'Matrix', T * R);
         width="500" 
         style="display: block; margin: 0 auto" />
 
-- In the left figure, the rotation labeled as 1 is perfomed before the transformation labeled 2.
-- In the right figure, the transformation labeled as 1 is perfomed before the rotation labeled 2.
+- In the left figure, the rotation labeled as 1 is perfomed before the translation labeled 2.
+- In the right figure, the translation labeled as 1 is perfomed before the rotation labeled 2.
 - If the translation is performed before the rotation, then the rotation transformation will also change the position of the object because the rotation is performed w.r.t. the parent axis.
 
-For detailed explainations, please search the following commands in Matlab Help Documents
+For detailed explanations, please search the following commands in Matlab Help Documents
 
 - [hgtransform](https://www.mathworks.com/help/matlab/ref/hgtransform.html)
 - [makehgtform](https://www.mathworks.com/help/matlab/ref/makehgtform.html)

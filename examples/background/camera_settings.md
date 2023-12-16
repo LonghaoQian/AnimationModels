@@ -9,7 +9,7 @@ The side view mode is the default view. Use [UpdateCameraModelSideView.m](../../
         width="600" 
         style="display: block; margin: 0 auto" />
 
-The view center is the center of the 3D model. The view size denotes the size of the 3D rending space as shown in the following figure:
+The view is centered on the center of the 3D model. The view size denotes the size of the 3D rendering space as shown in the following figure:
 
 <img src="../../figures/side_view.PNG" 
         alt="Picture" 
@@ -19,19 +19,19 @@ The view center is the center of the 3D model. The view size denotes the size of
 Read this [page](https://www.mathworks.com/help/matlab/ref/view.html) for more details of the ``view`` function.
 
 ## The Free-flying Mode
-- For more cinematic fpv views, you may use the free-flying mode.
+- For more cinematic FPV views, you may use the free-flying mode.
 - For camera graphics terminology, read this [page](https://www.mathworks.com/help/matlab/creating_plots/defining-scenes-with-camera-graphics.html).
-- Initialize the camera before using the funcitons in this package.
-- There are 2 sub modes of the free-flying mode: the body-fixed mode and the horizontal-following mode.
+- Initialize the camera before using the functions in this package.
+- There are 2 sub-modes of the free-flying mode: the body-fixed mode and the horizontal-following mode.
 
 ### Initialize the camera
-- Before updating the free-flying camera, one needs to initialized the camera view angle and projection mode by using [InitCamera.m](../../src/camera/InitCamera.m).
+- Before updating the free-flying camera, one needs to initialize the camera view angle and projection mode by using [InitCamera.m](../../src/camera/InitCamera.m).
 - The field of view is set by ``fov`` in degrees.
 - The projection mode is set to ``perspective`` or ```orthographic```. The recommended setting is ``perspective``.
 
 
 ### The body-fixed mode
-In the body-fixed mode, the camera is fixed to an object as shown in the following figure. Use [UpdateCameraModelFixed.m](../../src/camera/UpdateCameraModelFixed.m) to update the camera. This view together with the HUD module can be used as a fpv view for drones and flight simulation.
+In the body-fixed mode, the camera is fixed to an object as shown in the following figure. Use [UpdateCameraModelFixed.m](../../src/camera/UpdateCameraModelFixed.m) to update the camera. This view together with the HUD module can be used as a FPV view for drones and flight simulation.
 
 
 The geometry of the body-fixed mode is shown in the following figure:
@@ -61,9 +61,9 @@ The geometry of the horizontal-following mode is shown in the following figure:
         style="display: block; margin: 0 auto" />
 
 - Use [UpdateCameraModelFollowing.m](../../src/camera/UpdateCameraModelFollowing.m)  to update the camera.
-- The horizontal-following frame is a frame following the model, but only rotate around z axis by $\psi$, ignoring pitch and roll.
+- The horizontal-following frame is a frame following the model, but only rotated around the z axis by $\psi$, ignoring pitch and roll.
 - The camera is fixed in the horizontal-following frame. The view point defined in the horizontal-following frame is denoted by the argument called ``target``.
-- The camera postion relative to the origin of the body-fixed frame is denoted as ``position``.
+- The camera position relative to the origin of the body-fixed frame is denoted as ``position``.
 - The position of the horizontal-following frame relative to the global frame is denoted as ``Xe``.
 - The yaw angle is set by the argument called ``yaw``.
 

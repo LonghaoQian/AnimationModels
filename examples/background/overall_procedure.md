@@ -1,5 +1,5 @@
 # The Overall Procedure
-The overall procedure is summerized in the following figure:
+The overall procedure is summarized in the following figure:
 
 <img src="../../figures/mdss-overall procedure.drawio.png" 
         alt="Picture" 
@@ -16,7 +16,7 @@ The overall procedure is summerized in the following figure:
 
 ![Alt Text](../../figures/code_3.png)
 
-## How to modify the code to fit your need?
+## How to modify the code to fit your needs?
 - Load your own simulation data. The simulation data must contain the position and the attitude of the aircraft.
 - If you need to use HUD, your flight simulation data must also include airspeed.
 - You could use the [Built-in Models](model_building.md) to quickly create models.
@@ -31,17 +31,17 @@ The overall procedure is summerized in the following figure:
 
 - Read [Background of Rotations](rotation_matrix.md) for more details about mathematical background.
 
-- [Matlab Animation Frame System](animation_frame_system.md) explains in details about how frame systems work in Matlab.
+- [Matlab Animation Frame System](animation_frame_system.md) explains in detail about how frame systems work in Matlab.
 
 - You could use [GenerateHgRotation.m](../../src/utils/GenerateHgRotation.m) to generate rotation transformation from Euler angles.
 
 ## Update cameras
 
-- [Camera Settings](camera_settings.md) explains in details about how to define and update a proper camera in animation
+- [Camera Settings](camera_settings.md) explains in detail about how to define and update a proper camera in animation
 
 ## Models with multiple components
 
-- [Matlab Animation Frame System](animation_frame_system.md) explains in details about how frame systems work in Matlab.
+- [Matlab Animation Frame System](animation_frame_system.md) explains in detail about how frame systems work in Matlab.
 - Read [CreateTwingEngineVtol.m](../../src/models/CreateTwingEngineVtol.m) to learn how to build a model with rotating parts.
 - Please read [Built-in Models](model_building.md) for how to assemble a model with multiple parts.
 
