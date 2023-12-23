@@ -72,16 +72,16 @@ function planeObj = CreatePlane(sizeFactor, mainAxis, varargin)
     % then translate
     T = makehgtform('translate',[L/2 ,0, 0]);
     
-    planeObj.body.head = surf(Xc, Yc, Lc * Zc, 'Parent', planeObj.modelHeadFrame, 'FaceColor', 'cyan');
+    planeObj.body.head = surface(Xc, Yc, Lc * Zc, 'Parent', planeObj.modelHeadFrame, 'FaceColor', 'cyan');
     set(planeObj.modelHeadFrame, 'Matrix', T * R);
     
     [Xb, Yb, Zb]= cylinder(r, 15);
-    planeObj.body.middle = surf(Xb, Yb, L * Zb, 'Parent', planeObj.modelMiddleFrame, 'FaceColor', 'cyan');
+    planeObj.body.middle = surface(Xb, Yb, L * Zb, 'Parent', planeObj.modelMiddleFrame, 'FaceColor', 'cyan');
 
     T = makehgtform('translate',[- L/2 ,0, 0]);
     set(planeObj.modelMiddleFrame, 'Matrix', T * R);
     
-    planeObj.body.back = surf(Xc, Yc, Lc * Zc, 'Parent', planeObj.modelBackFrame, 'FaceColor', 'cyan');
+    planeObj.body.back = surface(Xc, Yc, Lc * Zc, 'Parent', planeObj.modelBackFrame, 'FaceColor', 'cyan');
     R = makehgtform('yrotate', -pi/2); 
     T = makehgtform('translate',[-L/2 ,0, 0]);
     set(planeObj.modelBackFrame, 'Matrix', T * R);

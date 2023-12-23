@@ -32,14 +32,14 @@ function gateObj = CreateRroundGate(innerRingRadius, marginWidth, totalLength, n
 
     % inner ring
     [Xi, Yi, Zi]= cylinder(innerRingRadius, numOfvertics);
-    gateObj.model.innerRing = surf(Xi, Yi, totalLength * Zi, 'Parent', gateObj.modelFrame, 'FaceColor', color);
+    gateObj.model.innerRing = surface(Xi, Yi, totalLength * Zi, 'Parent', gateObj.modelFrame, 'FaceColor', color);
     % outer ring
     [Xo, Yo, Zo]= cylinder(innerRingRadius +  marginWidth, numOfvertics);
-    gateObj.model.outerRing = surf(Xo, Yo, totalLength * Zo, 'Parent', gateObj.modelFrame, 'FaceColor', color);
+    gateObj.model.outerRing = surface(Xo, Yo, totalLength * Zo, 'Parent', gateObj.modelFrame, 'FaceColor', color);
     % front
     Xf = [Xi(1, :); Xo(1, :)];
     Yf = [Yi(1, :); Yo(1, :)];
-    gateObj.model.front = surf(Xf, Yf, zeros(size(Zi)), 'Parent', gateObj.modelFrame, 'FaceColor', color);
+    gateObj.model.front = surface(Xf, Yf, zeros(size(Zi)), 'Parent', gateObj.modelFrame, 'FaceColor', color);
     % back
-    gateObj.model.front = surf(Xf, Yf, totalLength * ones(size(Zi)), 'Parent', gateObj.modelFrame, 'FaceColor', color);
+    gateObj.model.back = surface(Xf, Yf, totalLength * ones(size(Zi)), 'Parent', gateObj.modelFrame, 'FaceColor', color);
 end
