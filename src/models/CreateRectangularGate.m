@@ -1,4 +1,3 @@
-% create rectangular gate
 % ------------------------------------------------------------------------------
 % MIT License
 % 
@@ -26,9 +25,9 @@
 % parameters:
 % width: width of the gate
 % height: height of the gate
-% pathTofigure: patch to the logo picture
-% logoHeading: the yaw angle of the logo in its local frame
-% mainAxis: parent axis of the logo object
+% totalLength: length of the gate
+% color: color the of the gate
+% mainAxis: parent axis
 function gateObj = CreateRectangularGate(width, height, sideMargin, totalLength, color, mainAxis)
     gateObj.frame = hgtransform('Parent', mainAxis);
     gateObj.modelFrame = hgtransform('Parent', gateObj.frame);
@@ -57,13 +56,28 @@ function gateObj = CreateRectangularGate(width, height, sideMargin, totalLength,
     for i = 1 : 11
         vb(i, 1) = Xb;
     end
-    
     gateObj.front = patch('Faces', 1:1:11,...
                           'Vertices', vf, 'FaceColor', color, 'Parent', gateObj.modelFrame);
     gateObj.back = patch('Faces', 1:1:11,...
                           'Vertices', vb, 'FaceColor', color, 'Parent', gateObj.modelFrame);
-    % gateObj.model.front = surface([Xf, Xf], [Yinner, Youter], [Zinner, Zouter], 'Parent', gateObj.modelFrame, 'FaceColor', color);
-    % back
-    % gateObj.model.back = surface(Xf, Yf, totalLength * ones(size(Zi)), 'Parent', gateObj.modelFrame, 'FaceColor', color);
-    
+
+    v = [vf; vb];
+    vertices = zeros(4, 4);
+    vertices(1, :) = [1, 2, 13, 12];
+    vertices(2, :) = [2, 3, 11 + 3, 11 + 2];
+    vertices(3, :) = [3, 4, 11 + 4, 11 + 3];
+    vertices(4, :) = [4, 1, 11 + 1, 11 + 4];
+    for i = 1 : 4
+       gateObj.outer(i) = patch('Faces', vertices(i, :),...
+                           'Vertices', v, 'FaceColor', color, 'Parent', gateObj.modelFrame);
+    end
+    vertices(1, :) = [6, 9, 11 + 9, 11 + 6];
+    vertices(2, :) = [9, 8, 11 + 8, 11 + 9];
+    vertices(3, :) = [8, 7, 11 + 7, 11 + 8];
+    vertices(4, :) = [7, 6, 11 + 6, 11 + 7];
+    for i = 1 : 4
+       gateObj.inner(i) = patch('Faces', vertices(i, :),...
+                           'Vertices', v, 'FaceColor', color, 'Parent', gateObj.modelFrame);
+    end
+
 end

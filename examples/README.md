@@ -21,6 +21,7 @@ The structure of this package is as follows:
 \examples\fixed-wing model
 \examples\quadrotor model
 \examples\vtol
+\examples\misc
 ```
 - Camera settings:
 ```

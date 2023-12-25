@@ -46,5 +46,7 @@ Alternatively, you could obtain the citation from GitHub citation tap:
 ### A racing quadrotor drone simulation
 ![Alt Text](figures/quadrotor_complicated_trjectory.gif)
 - Racing drone flight data are provided by [Chao Qin](https://github.com/ChaoqinRobotics).
+### A quadrotor with a slung payload
+![Alt Text](figures/quadrotor_payload.gif)
 ### A twin-engine VTOL with tilting engines
 ![Alt Text](figures/vtol_animate.gif)

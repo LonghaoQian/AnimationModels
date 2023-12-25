@@ -30,7 +30,6 @@ addpath('../../src/models')
 addpath('../../src/utils')
 addpath('../../src/camera')
 addpath('../../src/hud')
-tas = sqrt(flightData.vel(:, 1).^2 + flightData.vel(:, 2).^2  + flightData.vel(:, 3).^2);
 %% load flight path results
 anim_fig = figure('Units', 'normalized', 'OuterPosition', [0.2 0.2 0.6 0.6]);
 ax = axes('Position',[0.1 0.1 0.8 0.8],  'XLim',[-4, 4],'YLim',[-4, 4],'ZLim',[-3 3], 'DataAspectRatio', [1 1 1]);
@@ -50,7 +49,6 @@ quadObj = CreateQuadRotor(0.125, 0.05, ax, 'ENU');
 %% add gates
 flightData.gate(2).rpy = [17.62, -89.97, 180-40.84];
 for i = 1 : 5
-    % gate(i) = CreateRectangularGate(flightData.gate(i).width, flightData.gate(i).height, 0.05, 0.02, 'blue', ax);
     gate(i) = CreateRectangularGateWithLogo(flightData.gate(i).width, flightData.gate(i).height, 0.05, 0.02, 'blue', 'fsclogo.png', pi, ax);
     R1 = GenerateHgRotation([0, pi/2, 0], 'euler', "ENU");
     R = GenerateHgRotation([flightData.gate(i).rpy(1), flightData.gate(i).rpy(2), flightData.gate(i).rpy(3)]/57.3, 'euler', "ENU");

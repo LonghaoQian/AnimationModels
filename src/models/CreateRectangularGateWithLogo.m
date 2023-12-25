@@ -22,7 +22,15 @@
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
 % ------------------------------------------------------------------------------
-
+% create rectangular gate with a logo
+% parameters:
+% width: width of the gate
+% height: height of the gate
+% totalLength: length of the gate
+% color: color the of the gate
+% pathTofigure: the path to the figure picture
+% logo Yaw: the heading angle of the logo in the gate frame
+% mainAxis: parent axis
 function gateObj = CreateRectangularGateWithLogo(width, height, sideMargin, totalLength, color, pathTofigure, logoYaw, mainAxis)
     % create gate obj
     gateObj = CreateRectangularGate(width, height, sideMargin, totalLength, color, mainAxis);

@@ -24,12 +24,9 @@
 % Update the side-view camera
 % ax: referece ax
 % viewCenter: 3x1 vector, denotes the center of the view point
-% position: position of the camera focal point relative to the center of
-% the vehicle
-% target: the point at which the camera is pointing relative to the center of
-% vehicle
-% Reb: the rotation matrix of the vehicle. From the body-fixed frame to the
-% global frame
+% vieWSize: 3x1 vector, the length of the view box in x, y and z direction
+% varargin: azimuth and elevation of the view point. If not specified, used
+% the default value. (same as view(3))
 function UpdateCameraModelSideView(ax, viewCenter, viewSize, varargin)
     view(ax, varargin{:});
     Set3dRenderSpace(ax, viewCenter, viewSize)
