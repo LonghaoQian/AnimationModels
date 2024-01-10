@@ -41,8 +41,8 @@ Alternatively, you could obtain the citation from GitHub citation tap:
 ## Examples
 ### A fixed-wing drone simulation with artificial horizon display
 ![Alt Text](figures/circular_arc_trajectory.gif)
-### A quadrotor drone flying through gates
-![Alt Text](figures/quadrotor_circular_trajectory.gif)
+### A quadrotor drone flying through gates (click picture to watch the video)
+[![A quadrotor drone flying through gates](./figures/racing_gates.jpg)](https://www.youtube.com/watch?v=6eZ8LsYYfVw "Computationally Efficient Time-optimal Trajectory Planner Showcase")
 ### A racing quadrotor drone simulation
 ![Alt Text](figures/quadrotor_complicated_trjectory.gif)
 - Racing drone flight data are provided by [Chao Qin](https://github.com/ChaoqinRobotics).
